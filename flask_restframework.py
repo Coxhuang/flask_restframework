@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restplus import Api
+from init.app_init import config_obj
 app = Flask(__name__)
 api = Api(app)
 
@@ -30,6 +31,7 @@ def create_app():
     """
 
     register_url(app) # 注册url
+    config_obj.set_mysql_config(app)
 
     return app
 
